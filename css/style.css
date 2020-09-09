@@ -1,0 +1,115 @@
+.jumbotron{
+    background-color:#599ef0;
+}
+
+.jumbotron p, .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h5 {
+    color: #ffffff
+}
+
+.jumbotron a {
+    color: #ffc93c;
+}
+
+.logo a{
+    color: #ffffff
+}
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding-bottom: 0px;
+    display:none;
+}
+
+.navbar{
+    background-color:#326dc0;
+}
+
+.my-interests {
+    list-style-image: url('../img/interest_bullet.png');
+}
+
+.my-education {
+    list-style-image: url('../img/school_bullet.png');
+}
+
+.progress-title{
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 10px 0;
+}
+
+.progress{
+    height: 20px;
+    line-height: 15px;
+    border-radius: 20px;
+    background: #f0f0f0;
+    margin-bottom: 30px;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.progress .progress-bar{
+    position: relative;
+    border-radius: 20px 0 0 20px;
+}
+
+.progress .progress-value{
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    top: 3px;
+    right: 8px;
+}
+
+.list-group .list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+
+
+@media print {
+    .proj-card {
+      width: 18rem !important;
+    }    
+}
+
+svg {
+    z-index: 9999;
+}
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+
+    0%,
+    100% {
+        transform: rotate(0)
+    }
+
+    20%,
+    60% {
+        transform: rotate(-25deg)
+    }
+
+    40%,
+    80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media (max-width:500px) {
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+}
