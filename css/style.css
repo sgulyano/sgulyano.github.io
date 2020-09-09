@@ -71,6 +71,9 @@
 }
 
 
+body {
+    -webkit-print-color-adjust: exact !important;
+}
 
 @media print {
     .proj-card {
