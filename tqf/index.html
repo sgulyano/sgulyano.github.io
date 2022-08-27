@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+   <body>
+       
+        <div class="w3-dark-grey w3-padding-32 w3-center">
+            <h1 class="w3-jumbo">มคอ.3 และ 5</h1>
+            <h1 class="w3-xlarge">หลักสูตร Data Science and Innvoation</h1>
+            <h1 class="w3-xlarge">วิทยาลัยสหวิทยาการ มหาวิทยาลัยธรรมศาสตร์</h1>
+        </div>
+       
+        <div id="nav" class="w3-bar w3-border w3-light-grey">
+        </div>
+       
+        <div class="w3-container w3-padding-large">
+        <div class="w3-responsive">
+            <p><b>วิธีใช้</b> กด 🔎 เพื่อดู และกด 🖨️ เพื่อพิม</p>
+            <h2 id="academicyear">ปีการศึกษา </h2>
+            <table class="w3-table-all">
+                <thead>
+                    <tr class="w3-blue">
+                        <th>รหัสวิชา</th>
+                        <th>ชื่อวิชา</th>
+                        <th>Section</th>
+                        <th>เทอม</th>
+                        <th>มคอ.3</th>
+                        <th>มคอ.5</th>
+                    </tr>
+                </thead>
+                
+                <tbody id='data'>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+        </div>
+
+        <script>
+            function getAcademicYear() {
+                var year = new Date().getFullYear() + 543
+                var month = new Date().getMonth() + 1
+                if (month < 8) {
+                    year--;
+                }
+                return year
+            }
+            
+            function getRow(row) {
+                let id = row["ID"]
+                let content = "<tr>"
+                content = content + "<td>" + row["TH_code"] + "</td>"
+                content = content + "<td>" + row["TH_name"] + "</td>"
+                
+                if (row["Section"] == null) {
+                    let tqf3b_view_pat = 'https://web.reg.tu.ac.th/wwwtqf/coursespec.aspx?pagemode=P&coursesemesterid=' + id + '&tqftype=03&documenttitle=3'
+                    let tqf3b_print_pat = 'https://web.reg.tu.ac.th/wwwtqf/coursespecprint.aspx?coursesemesterid=' + id + '&tqftype=03&documenttitle=3'
+
+                    content = content + "<td>N/A</td>"
+                    content = content + "<td>" + row["Sem"] + "</td>"
+                    content = content + '<td> <a href="' + tqf3b_view_pat + '" class="w3-button w3-padding-small">🔎</a>  <a href="' + tqf3b_print_pat + '"  class="w3-button w3-padding-small">🖨️</a> </td><td>'
+                } else {
+                    let tqf3a_view_pat = 'https://web.reg.tu.ac.th/wwwtqf/coursespec.aspx?pagemode=P&classid=' + id + '&tqftype=03&documenttitle=3'
+                    let tqf3a_print_pat = 'https://web.reg.tu.ac.th/wwwtqf/coursespecprint.aspx?cmd=1&classid=' + id + '&tqftype=03&documenttitle=3'
+                    let tqf5_view_pat = 'https://web.reg.tu.ac.th/wwwtqf/coursespec.aspx?pagemode=P&classid=' + id + '&tqftype=05&documenttitle=5'
+                    let tqf5_print_pat = 'https://web.reg.tu.ac.th/wwwtqf/coursespecprint.aspx?cmd=1&classid=' + id + '&tqftype=05&documenttitle=5'
+
+                    content = content + "<td>" + row["Section"] + "</td>"
+                    content = content + "<td>" + row["Sem"] + "</td>"
+                    content = content + '<td> <a href="' + tqf3a_view_pat + '" class="w3-button w3-padding-small">🔎</a>  <a href="' + tqf3a_print_pat + '" class="w3-button w3-padding-small">🖨️</a> </td>'
+                    content = content + '<td> <a href="' + tqf5_view_pat + '" class="w3-button w3-padding-small">🔎</a>  <a href="' + tqf5_print_pat + '" class="w3-button w3-padding-small">🖨️</a> </td>'
+                }
+                content = content + "</tr>"
+                return content
+            }
+
+            function renderData(jsondata) {
+                // console.log(jsondata)
+                let returnValue = jsondata.map(getRow)
+                // console.log(returnValue)
+                document.getElementById("data").innerHTML = returnValue.join(' ');
+            }
+
+            year = getAcademicYear()
+            for (var i=0;i<5;i++) {  
+                var a = document.createElement('a');
+                a.href = "javascript:void(0);";
+                a.innerText = '' + (year-i);
+                a.classList.add("w3-bar-item", "w3-button", "w3-hover-blue");
+                a.addEventListener('click', function handleClick(event) {
+                    // console.log('element clicked 🎉🎉🎉', event, event.currentTarget.innerText);
+
+                    document.getElementById('academicyear').innerText = "ปีการศึกษา " + event.currentTarget.innerText
+
+                    fetch(event.currentTarget.innerText + ".json")
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(jsondata => renderData(jsondata));
+                });
+                document.getElementById('nav').appendChild(a);
+            }
+
+        </script>
+
+        <footer class="w3-container w3-padding-large w3-light-grey w3-center w3-opacity">
+            <p><nav>
+            &copy; 2022 Thammasat University
+            </nav></p>
+        </footer>
+   </body>
+</html>
