@@ -35,12 +35,18 @@ def get_sem(s):
         return res[0]
     return ''
 
+# tqf3['TH_name'] = tqf3['TH_name'].apply(lambda x: x.strip())
 tqf3_clean = pd.concat([tqf3['classid'], 
                         tqf3['TH_name'].str.split("\n", n = 1, expand = True),
                         tqf3['EN_name'].str.split("\n", n = 1, expand = True),
                         tqf3['Semester'].apply(get_sem),
                         tqf3['Year']], axis=1)
+
+
 tqf3_clean.columns = ['ID', 'TH_code', 'TH_name', 'EN_code', 'EN_name', 'Sem', 'Year']
+tqf3_clean['EN_code'] = tqf3_clean['EN_code'].str.strip()
+tqf3_clean['TH_code'] = tqf3_clean['TH_code'].str.strip()
+
 
 tqf5_clean = pd.concat([tqf5['classid'], 
                         tqf5['TH_name'].str.split("\n", n = 1, expand = True),
@@ -49,6 +55,8 @@ tqf5_clean = pd.concat([tqf5['classid'],
                         tqf5['Semester'].apply(get_sem),
                         tqf5['Year']], axis=1)
 tqf5_clean.columns = ['ID', 'TH_code', 'TH_name', 'EN_code', 'EN_name', 'Section', 'Sem', 'Year']
+tqf5_clean['EN_code'] = tqf5_clean['EN_code'].str.strip()
+tqf5_clean['TH_code'] = tqf5_clean['TH_code'].str.strip()
 
 # print(tqf3_clean)
 # df = pd.concat([tqf3_clean, tqf5_clean], axis=0)
@@ -61,7 +69,7 @@ for y in sorted(pd.concat([tqf3['Year'], tqf5['Year']]).unique()):
     df = pd.concat([tqf5_cur, tqf3_cur[~tqf3_cur['EN_code'].isin(tqf5_cur['EN_code'])]], axis=0)
 
     # df = pd.concat([tqf5_clean, tqf3_clean[~tqf3_clean['EN_code'].isin(tqf5_clean['EN_code'])]], axis=0)
-
+    
     
     # fp = '%d.json' % (y)
     # if os.path.exists(fp):
