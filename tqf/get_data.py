@@ -76,7 +76,7 @@ for y in sorted(pd.concat([tqf3['Year'], tqf5['Year']]).unique()):
     # else:
     #     df_new = df_cur.sort_values(['EN_code', 'Section', 'ID'])
     
-    df_new = df.sort_values(['EN_code', 'Section', 'ID'])
+    df_new = df.sort_values(['Sem', 'EN_code', 'Section', 'ID'])
 
     # print(y, df_new)
 
