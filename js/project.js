@@ -67,7 +67,7 @@ var Project = /** @class */ (function () {
 }());
 var myproj = [
     new Project("Image Classification บน Jetson Nano", "\u0E40\u0E25\u0E48\u0E32\u0E27\u0E34\u0E18\u0E35\u0E01\u0E32\u0E23\u0E17\u0E33 Image Classification \u0E42\u0E14\u0E22\u0E43\u0E0A\u0E49\u0E40\u0E17\u0E04\u0E19\u0E34\u0E04 Deep Learning \u0E23\u0E31\u0E19\u0E1A\u0E19 NVIDIA Jetson Nano \n        \u0E1C\u0E48\u0E32\u0E19 Library \u0E17\u0E35\u0E48\u0E21\u0E35\u0E0A\u0E37\u0E48\u0E2D\u0E27\u0E48\u0E32 TensorFlow \u0E41\u0E25\u0E30 TensorRT", "img/proj/jetson.png", "https://medium.com/@sgulyano/introduction-to-deep-learning-on-nvidia-jetson-nano-87428b3c6e17"),
-    new Project("หลักสูตร AI Level 3", "จัดทำโดย สสวท.", "img/proj/ipst.png", "https://ipst-ai-lvl3.herokuapp.com/"),
+    new Project("หลักสูตร AI Level 3", "จัดทำโดย สสวท.", "img/proj/ipst.png", "https://www.ipst.ac.th/news/13757/20210727_ai-level3.html"),
     new Project("Project: Semanthai Bank", "ทุนวิจัย Fast Track", "img/proj/semanthai.png", "https://github.com/sgulyano/semanthaibank"),
 ];
 // let a = myskill[0].disp()

@@ -111,7 +111,7 @@ let myproj: Project[] = [
     new Project("หลักสูตร AI Level 3",
         "จัดทำโดย สสวท.",
         "img/proj/ipst.png",
-        "https://ipst-ai-lvl3.herokuapp.com/"),
+        "https://www.ipst.ac.th/news/13757/20210727_ai-level3.html"),
     new Project("Project: Semanthai Bank",
         "ทุนวิจัย Fast Track",
         "img/proj/semanthai.png",
