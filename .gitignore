@@ -1,2 +1,6 @@
 
 tqf/.ipynb_checkpoints/
+
+js/node_modules/
+js/package-lock.json
+js/package.json

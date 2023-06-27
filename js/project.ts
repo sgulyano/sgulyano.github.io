@@ -112,6 +112,10 @@ let myproj: Project[] = [
         "จัดทำโดย สสวท.",
         "img/proj/ipst.png",
         "https://ipst-ai-lvl3.herokuapp.com/"),
+    new Project("Project: Semanthai Bank",
+        "ทุนวิจัย Fast Track",
+        "img/proj/semanthai.png",
+        "https://github.com/sgulyano/semanthaibank"),
 ];
 
 // let a = myskill[0].disp()
