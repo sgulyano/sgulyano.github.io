@@ -113,7 +113,7 @@ let myproj: Project[] = [
         "img/proj/ipst.png",
         "https://www.ipst.ac.th/news/13757/20210727_ai-level3.html"),
     new Project("Project: Semanthai Bank",
-        "ทุนวิจัย Fast Track",
+        "Lexical resources have played a key role in advancing natural language processing research. One particular resource is VerbNet, which contains both syntactic and semantic information of verbs. Read more ...",
         "img/proj/semanthai.png",
         "https://github.com/sgulyano/semanthaibank"),
 ];
