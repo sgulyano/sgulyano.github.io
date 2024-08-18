@@ -52,70 +52,31 @@ class Project {
         const button = document.createElement("a");
         button.classList.add("btn", "btn-primary", "stretched-link");
         button.setAttribute("href", this.url);
-        button.textContent = "Open"
+        button.setAttribute("target", "_blank");
+        button.textContent = "Read More"
         card_body?.appendChild(button);
 
         return elem
-        // var parser = new DOMParser();
-        // var doc = parser.parseFromString(`
-        // <div class="col-auto mb-3 d-print-inline-flex">
-        //     <div class="card" style="width: 18rem;">
-        //         <div class="view overlay">
-        //             <img class="card-img-top"
-        //                 src="${this.img}"
-        //                 alt="Card image cap">
-        //             <a href="#!">
-        //                 <div class="mask rgba-white-slight"></div>
-        //             </a>
-        //         </div>
-
-        //         <div class="card-body">
-        //             <h4 class="card-title">${this.title}</h4>
-        //             <p class="card-text">
-        //             ${this.text}
-        //             </p>
-        //             <a href="${this.url}" class="btn btn-primary stretched-link">Open</a>
-        //         </div>        
-        //     </div>
-        // </div>`, 'text/html');
-
-        // return doc.body;
     }
-
-    // //function 
-    // disp() {
-    //     var parser = new DOMParser();
-    //     var doc = parser.parseFromString(`
-    //     <div class="col-auto mb-3">
-    //         <div class="card" style="width: 15rem;">
-    //             <div class="card-body">
-    //                 <h5 class="card-title">Card title</h5>
-    //                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    //                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    //                 <a href="#" class="card-link">Card link</a>
-    //                 <a href="#" class="card-link">Another link</a>
-    //             </div>
-    //         </div>
-    //     </div>`, 'text/html');
-
-    //     return doc.body;
-    // }
 }
 
 let myproj: Project[] = [
-    new Project("Image Classification บน Jetson Nano",
-        `เล่าวิธีการทำ Image Classification โดยใช้เทคนิค Deep Learning รันบน NVIDIA Jetson Nano 
-        ผ่าน Library ที่มีชื่อว่า TensorFlow และ TensorRT`,
-        "img/proj/jetson.png",
-        "https://medium.com/@sgulyano/introduction-to-deep-learning-on-nvidia-jetson-nano-87428b3c6e17"),
-    new Project("หลักสูตร AI Level 3",
-        "จัดทำโดย สสวท.",
-        "img/proj/ipst.png",
-        "https://www.ipst.ac.th/news/13757/20210727_ai-level3.html"),
-    new Project("Project: Semanthai Bank",
-        "Lexical resources have played a key role in advancing natural language processing research. One particular resource is VerbNet, which contains both syntactic and semantic information of verbs. Read more ...",
+    new Project("Data Visualization of Crime and Justice System Data and Statistics",
+        `In collaboration with the Office of Justice Affairs, this project aims to enhance the integration of justice system data, improve the effectiveness of criminal justice policies, and provide insights for crime prevention and international reporting.`,
+        "img/proj/oja.png",
+        "https://www.oja.go.th/justicedata/"),
+    new Project("Semanthai Bank: Thai Corpus and Benchmarks on Automated Semantic Role Annotation",
+        "This project introduces a new system to streamline the creation of lexical resources, particularly for Thai VerbNet, and presents the first prototype of a Thai VerbNet corpus. It also includes an overview of semantic role labeling algorithms and a new verb classification method, offering a baseline for future research.",
         "img/proj/semanthai.png",
         "https://github.com/sgulyano/semanthaibank"),
+    new Project("Deep Learning for Raman Spectral Analysis",
+        "In collaboration with the Center of Excellence in Functional Advanced Materials Engineering Research Center (CoE FAME) and Western Digital (WD), this project proposes using deep learning techniques for the automatic analysis of Raman spectra to enhance contamination detection in HDDs.",
+        "img/proj/raman.jpg",
+        "https://ieeexplore.ieee.org/document/10637964"),
+    new Project("Efficient Microplastic Detection Using Computational and Spectroscopic Methods",
+        "This project develops a machine learning technique for analyzing FT-IR spectra of microplastics, improving detection accuracy and creating a dataset for various types. This aims to advance machine learning and enhance environmental management strategies against microplastic pollution.",
+        "img/proj/ftir.png",
+        ""),
 ];
 
 // let a = myskill[0].disp()
