@@ -76,7 +76,7 @@ let myproj: Project[] = [
     new Project("Efficient Microplastic Detection Using Computational and Spectroscopic Methods",
         "This project develops a machine learning technique for analyzing FT-IR spectra of microplastics, improving detection accuracy and creating a dataset for various types. This aims to advance machine learning and enhance environmental management strategies against microplastic pollution.",
         "img/proj/ftir.png",
-        ""),
+        "https://doi.org/10.1038/s41598-024-70407-5"),
 ];
 
 // let a = myskill[0].disp()
