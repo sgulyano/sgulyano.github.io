@@ -68,7 +68,7 @@ let myproj: Project[] = [
     new Project("Semanthai Bank: Thai Corpus and Benchmarks on Automated Semantic Role Annotation",
         "This project introduces a new system to streamline the creation of lexical resources, particularly for Thai VerbNet, and presents the first prototype of a Thai VerbNet corpus. It also includes an overview of semantic role labeling algorithms and a new verb classification method, offering a baseline for future research.",
         "img/proj/semanthai.png",
-        "https://github.com/sgulyano/semanthaibank"),
+        "https://sgulyano.github.io/semanthaibank/"),
     new Project("Deep Learning for Raman Spectral Analysis",
         "In collaboration with the Center of Excellence in Functional Advanced Materials Engineering Research Center (CoE FAME) and Western Digital (WD), this project proposes using deep learning techniques for the automatic analysis of Raman spectra to enhance contamination detection in HDDs.",
         "img/proj/raman.jpg",
