@@ -14,7 +14,6 @@ var Project = /** @class */ (function () {
         elem.classList.add("col-auto", "mb-3");
         var card = document.createElement("div");
         card.classList.add("card", "proj-card");
-        card.setAttribute("style", "width: 21rem;");
         elem === null || elem === void 0 ? void 0 : elem.appendChild(card);
         var view = document.createElement("div");
         view.classList.add("view", "overlay");
@@ -26,7 +25,7 @@ var Project = /** @class */ (function () {
         var card_body = document.createElement("div");
         card_body.classList.add("card-body");
         card === null || card === void 0 ? void 0 : card.appendChild(card_body);
-        var title = document.createElement("h4");
+        var title = document.createElement("h3");
         title.classList.add("card-title");
         title.textContent = this.title;
         card_body === null || card_body === void 0 ? void 0 : card_body.appendChild(title);
@@ -45,10 +44,11 @@ var Project = /** @class */ (function () {
     return Project;
 }());
 var myproj = [
-    new Project("Data Visualization of Crime and Justice System Data and Statistics", "In collaboration with the Office of Justice Affairs, this project aims to enhance the integration of justice system data, improve the effectiveness of criminal justice policies, and provide insights for crime prevention and international reporting.", "img/proj/oja.png", "https://www.oja.go.th/justicedata/"),
-    new Project("Semanthai Bank: Thai Corpus and Benchmarks on Automated Semantic Role Annotation", "This project introduces a new system to streamline the creation of lexical resources, particularly for Thai VerbNet, and presents the first prototype of a Thai VerbNet corpus. It also includes an overview of semantic role labeling algorithms and a new verb classification method, offering a baseline for future research.", "img/proj/semanthai.png", "https://sgulyano.github.io/semanthaibank/"),
-    new Project("Deep Learning for Raman Spectral Analysis", "In collaboration with the Center of Excellence in Functional Advanced Materials Engineering Research Center (CoE FAME) and Western Digital (WD), this project proposes using deep learning techniques for the automatic analysis of Raman spectra to enhance contamination detection in HDDs.", "img/proj/raman.jpg", "https://ieeexplore.ieee.org/document/10637964"),
-    new Project("Efficient Microplastic Detection Using Computational and Spectroscopic Methods", "This project develops a machine learning technique for analyzing FT-IR spectra of microplastics, improving detection accuracy and creating a dataset for various types. This aims to advance machine learning and enhance environmental management strategies against microplastic pollution.", "img/proj/ftir.png", "https://doi.org/10.1038/s41598-024-70407-5"),
+    new Project("3D MRI-to-Synthetic CT Translation for MR-only Radiotherapy", "This project develops sCTFlow, a conditional rectified flow framework that generates synthetic CT (sCT) from 3D MRI, so radiotherapy can be planned from MRI alone. A 3D Attention U-Net conditioned on MRI and organ segmentation reconstructs realistic Hounsfield units in fewer sampling steps than diffusion models, evaluated on the SynthRAD2023 dataset.", "img/proj/thumbs/sct.jpg", "https://doi.org/10.1109/JCSSE68839.2026.11596689"),
+    new Project("Data Visualization of Crime and Justice System Data and Statistics", "In collaboration with the Office of Justice Affairs, this project aims to enhance the integration of justice system data, improve the effectiveness of criminal justice policies, and provide insights for crime prevention and international reporting.", "img/proj/thumbs/oja.jpg", "https://www.oja.go.th/justicedata/"),
+    new Project("Semanthai Bank: Thai Corpus and Benchmarks on Automated Semantic Role Annotation", "This project introduces a new system to streamline the creation of lexical resources, particularly for Thai VerbNet, and presents the first prototype of a Thai VerbNet corpus. It also includes an overview of semantic role labeling algorithms and a new verb classification method, offering a baseline for future research.", "img/proj/thumbs/semanthai.jpg", "https://sgulyano.github.io/semanthaibank/"),
+    new Project("Deep Learning for Raman Spectral Analysis", "In collaboration with the Center of Excellence in Functional Advanced Materials Engineering Research Center (CoE FAME) and Western Digital (WD), this project proposes using deep learning techniques for the automatic analysis of Raman spectra to enhance contamination detection in HDDs.", "img/proj/thumbs/raman.jpg", "https://ieeexplore.ieee.org/document/10637964"),
+    new Project("Efficient Microplastic Detection Using Computational and Spectroscopic Methods", "This project develops a machine learning technique for analyzing FT-IR spectra of microplastics, improving detection accuracy and creating a dataset for various types. This aims to advance machine learning and enhance environmental management strategies against microplastic pollution.", "img/proj/thumbs/ftir.jpg", "https://doi.org/10.1038/s41598-024-70407-5"),
 ];
 // let a = myskill[0].disp()
 for (var _i = 0, myproj_1 = myproj; _i < myproj_1.length; _i++) {

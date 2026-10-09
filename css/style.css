@@ -1,8 +1,62 @@
-.jumbotron{
-    background-color:#599ef0;
+:root {
+    --brand-deep: #1d4a94;
+    --brand: #326dc0;
+    --brand-light: #599ef0;
+    --brand-accent: #5ec8e5;
+    --lift-shadow: 0 .75rem 1.5rem rgba(29, 74, 148, .15);
 }
 
-.jumbotron p, .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h5 {
+/* Hero: slowly drifting gradient with two soft light glows */
+.jumbotron {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    background: linear-gradient(125deg, var(--brand-deep), var(--brand) 35%, var(--brand-light) 70%, var(--brand-accent));
+    background-size: 200% 200%;
+    animation: gradient-shift 20s ease-in-out infinite alternate;
+}
+
+.jumbotron::before, .jumbotron::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.jumbotron::before {
+    width: 520px;
+    height: 520px;
+    top: -180px;
+    right: -120px;
+    background: radial-gradient(circle, rgba(255, 255, 255, .22), transparent 70%);
+    animation: drift 16s ease-in-out infinite alternate;
+}
+
+.jumbotron::after {
+    width: 460px;
+    height: 460px;
+    bottom: -200px;
+    left: 5%;
+    background: radial-gradient(circle, rgba(94, 200, 229, .4), transparent 70%);
+    animation: drift 22s ease-in-out infinite alternate-reverse;
+}
+
+.jumbotron > .container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes gradient-shift {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+}
+
+@keyframes drift {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-60px, 40px); }
+}
+
+.jumbotron p, .jumbotron h1, .jumbotron h2 {
     color: #ffffff
 }
 
@@ -11,7 +65,18 @@
 }
 
 .logo a{
-    color: #ffffff
+    display: inline-block;
+    color: #ffffff;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.logo a:hover {
+    color: #ffc93c;
+    transform: translateY(-3px);
+}
+
+.logo i {
+    font-size: 48px;
 }
 
 .back-to-top {
@@ -21,18 +86,347 @@
     right: 20px;
     padding-bottom: 0px;
     display:none;
+    border: 0;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--brand), var(--brand-light));
+    box-shadow: var(--lift-shadow);
+}
+
+.back-to-top .material-icons {
+    font-size: 32px;
 }
 
 .navbar{
-    background-color:#326dc0;
+    background: linear-gradient(90deg, var(--brand-deep), var(--brand));
+    transition: box-shadow .3s ease;
 }
 
+/* index.js adds .scrolled once the page leaves the top */
+.navbar.scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .2);
+}
+
+/* Sections */
+.section-title {
+    font-weight: 300;
+    text-align: center;
+    color: #6c757d;
+    padding: 1rem 0;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin: .6rem auto 0;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-accent));
+}
+
+/* Scroll reveal: index.js adds .reveal to off-screen blocks, then .is-visible when they scroll in.
+   The animation only fills backwards, so hover transforms still work once it ends. */
+.reveal:not(.is-visible) {
+    opacity: 0;
+}
+
+.reveal.is-visible {
+    animation: reveal-up .7s ease var(--reveal-delay, 0s) backwards;
+}
+
+@keyframes reveal-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* About */
+.profile img {
+    display: block;
+    max-width: 100%;        /* the column is narrower than the 300px photo on tablets */
+    height: auto;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, .85);
+    box-shadow: 0 10px 30px rgba(10, 30, 70, .35);
+}
+
+.profile .name {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+}
+
+.profile .affiliation {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+}
+
+.bio h2 {
+    font-size: 2.5rem;
+}
+
+/* Tablet: the profile column is ~210px, so keep the names and icons on their lines */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .profile .name {
+        font-size: 1.5rem;
+    }
+
+    .profile .affiliation {
+        font-size: 1.1rem;
+    }
+
+    .logo i {
+        font-size: 36px;
+    }
+}
+
+/* Interests & Education */
 .my-interests {
     list-style-image: url('../img/interest_bullet.png');
 }
 
+.my-interests li {
+    padding-bottom: .5rem;
+}
+
 .my-education {
     list-style-image: url('../img/school_bullet.png');
+}
+
+.my-education li {
+    padding-bottom: 1rem;
+}
+
+.my-education h3 {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.my-education p {
+    margin: 0;
+}
+
+.my-education .meta {
+    color: #6c757d;
+}
+
+/* Experience timeline: each <li> is a card; ::before draws the dot, ::after the line */
+.timeline {
+    list-style: none;
+    padding: 8px 0 8px 69px;
+    margin: 0;
+}
+
+.timeline > li {
+    position: relative;
+    padding: 1.25rem;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    background-color: #fff;
+    transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+/* No lift here: moving the card would also move its dot and break the line */
+.timeline > li:hover {
+    border-color: rgba(50, 109, 192, .4);
+    box-shadow: var(--lift-shadow);
+}
+
+.timeline > li + li {
+    margin-top: 16px;
+}
+
+.timeline > li::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: -61px;
+    top: 50%;
+    width: 23px;
+    height: 23px;
+    margin-top: -11.5px;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 0 8px #fff;
+}
+
+.timeline > li::after {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: -9px;
+    bottom: -9px;
+    border-left: 1px solid #dee2e6;
+}
+
+.timeline > li:first-child::after {
+    top: 50%;
+}
+
+.timeline > li:last-child::after {
+    bottom: 50%;
+}
+
+.timeline > li:only-child::after {
+    display: none;
+}
+
+.timeline > li.current {
+    border-color: #007bff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.timeline > li.current::before {
+    border-color: #007bff;
+    background-color: #007bff;
+    animation: pulse 2.5s ease-out infinite;
+}
+
+/* The white ring masks the timeline line around the dot; the blue ring pulses outside it */
+@keyframes pulse {
+    from { box-shadow: 0 0 0 8px #fff, 0 0 0 8px rgba(0, 123, 255, .45); }
+    to { box-shadow: 0 0 0 8px #fff, 0 0 0 18px rgba(0, 123, 255, 0); }
+}
+
+.timeline header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.timeline h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.timeline time {
+    flex-shrink: 0;
+    margin-left: 1rem;
+    color: #6c757d;
+}
+
+.timeline .current h3, .timeline .current time {
+    color: #007bff;
+}
+
+.timeline .role {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.timeline h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.timeline .courses {
+    list-style: none;
+    padding: 0;
+}
+
+@media (max-width: 575.98px) {
+    .timeline {
+        padding-left: 0;
+    }
+
+    .timeline > li::before, .timeline > li::after {
+        display: none;
+    }
+
+    .timeline header {
+        flex-direction: column;
+    }
+
+    .timeline time {
+        margin-left: 0;
+    }
+}
+
+/* Achievements */
+.achievements .date {
+    float: right;
+    color: #6c757d;
+}
+
+.achievements h3 {
+    font-size: 1.5rem;
+    margin-bottom: .75rem;
+}
+
+.achievements p {
+    margin-bottom: 0;
+}
+
+.achievements .list-group-item {
+    transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+.achievements .list-group-item:hover {
+    box-shadow: inset 4px 0 0 var(--brand);
+}
+
+/* Projects (cards are built by js/project.js) */
+.proj-card {
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.proj-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--lift-shadow);
+}
+
+.proj-card .card-img-top {
+    transition: transform .5s ease;
+}
+
+.proj-card:hover .card-img-top {
+    transform: scale(1.04);
+}
+
+.proj-card .view {
+    overflow: hidden;
+}
+
+.proj-card .btn-primary {
+    border: 0;
+    background: linear-gradient(90deg, var(--brand), var(--brand-light));
+}
+
+/* Motion off for people who ask for it, and for print */
+@media (prefers-reduced-motion: reduce) {
+    .jumbotron, .jumbotron::before, .jumbotron::after,
+    .timeline > li.current::before, .reveal.is-visible {
+        animation: none;
+    }
+
+    .logo a, .timeline > li, .proj-card, .proj-card .card-img-top {
+        transition: none;
+    }
+
+    .logo a:hover, .proj-card:hover, .proj-card:hover .card-img-top {
+        transform: none;
+    }
+}
+
+@media print {
+    .jumbotron, .jumbotron::before, .jumbotron::after,
+    .timeline > li.current::before, .reveal.is-visible {
+        animation: none;
+    }
+
+    .reveal:not(.is-visible) {
+        opacity: 1;
+    }
 }
 
 .progress-title{
@@ -75,14 +469,36 @@ body {
     -webkit-print-color-adjust: exact !important;
 }
 
+.proj-card {
+    width: 21rem;
+    max-width: 100%;
+}
+
+.proj-card .card-title {
+    font-size: 1.5rem;
+}
+
 @media print {
     .proj-card {
-      width: 18rem !important;
-    }    
+      width: 18rem;
+    }
 }
 
 svg {
     z-index: 9999;
+}
+
+.github-corner svg {
+    fill: #151513;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+}
+
+.github-corner .octo-arm {
+    transform-origin: 130px 106px;
 }
 
 .github-corner:hover .octo-arm {

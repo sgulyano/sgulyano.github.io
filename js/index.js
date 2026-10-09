@@ -31,6 +31,7 @@ $(document).ready(function () {
         } else {
             $('#back-to-top').fadeOut();
         }
+        $('.navbar').toggleClass('scrolled', $(this).scrollTop() > 10);
     });
     
     // scroll body to 0px on click
@@ -43,5 +44,32 @@ $(document).ready(function () {
     });
 
     // $('#back-to-top').tooltip('show');
+});
+
+// Fade blocks up as they scroll into view (styles in css/style.css under "Scroll reveal").
+// Only blocks still below the fold are hidden, so nothing visible on load flickers.
+$(document).ready(function () {
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.filter(function (entry) { return entry.isIntersecting; })
+            .forEach(function (entry, i) {
+                // stagger blocks that arrive together
+                entry.target.style.setProperty('--reveal-delay', (i * 0.08) + 's');
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+    }, { rootMargin: '0px 0px -40px 0px' });
+
+    $('.section-title, .my-education > li, .timeline > li, #publications ol, .achievements, #project-div > div')
+        .each(function () {
+            if (this.getBoundingClientRect().top > window.innerHeight) {
+                this.classList.add('reveal');
+                observer.observe(this);
+            }
+        });
 });
 
