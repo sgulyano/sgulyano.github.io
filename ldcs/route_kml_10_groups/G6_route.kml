@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<name>Chumphon sidewalk route G6 (10-group plan)</name>
+<Style id="g6film"><LineStyle><color>ffa79a0e</color><width>5</width></LineStyle></Style>
+<Style id="g6opt"><LineStyle><color>99a79a0e</color><width>4</width></LineStyle></Style>
+<Style id="g6con"><LineStyle><color>ff8a8a8a</color><width>2</width></LineStyle></Style>
+<Folder><name>Group 6</name>
+<Placemark><name>G6 START</name><description>Junction of Prachauthid Rd (ถ.ประชาอุทิศ) &amp; Pinij Kadee Rd</description><Point><coordinates>99.17949,10.49472,0</coordinates></Point></Placemark>
+<Placemark><name>G6 step 1: Prachauthid Rd</name><description>Start here. Head west along Prachauthid Rd (ถ.ประชาอุทิศ) for about 540 m, passing Soi Prachauthid 1, Soi Saladaeng 2, to the junction with ถ.ทวีสินค้า.</description><styleUrl>#g6film</styleUrl><LineString><tessellate>1</tessellate><coordinates>99.17949,10.49472,0 99.17934,10.49477,0 99.17898,10.49492,0 99.17896,10.49493,0 99.17873,10.49504,0 99.17859,10.49514,0 99.1785,10.49523,0 99.17844,10.4953,0 99.17837,10.49542,0 99.17819,10.49571,0 99.17793,10.49613,0 99.17767,10.49662,0 99.17761,10.49674,0 99.17748,10.497,0 99.17747,10.49703,0 99.17672,10.49851,0</coordinates></LineString></Placemark>
+<Placemark><name>G6 step 2: Sala Daeng Rd</name><description>Turn sharp left onto Sala Daeng Rd (ถ.ศาลาแดง), heading south for about 390 m, passing Soi Saladaeng 3, Soi Saladaeng 1, Soi Saladaeng 2, to the junction with Poowanaad Damnurn Rd (ถ.ภูนารถดำเนิน).</description><styleUrl>#g6film</styleUrl><LineString><tessellate>1</tessellate><coordinates>99.17672,10.49851,0 99.17657,10.49794,0 99.17643,10.49736,0 99.17634,10.49701,0 99.17629,10.4968,0 99.17624,10.49661,0 99.17586,10.49509,0</coordinates></LineString></Placemark>
+<Placemark><name>G6 step 3: Poramin Mankha Rd</name><description>Turn left onto Poramin Mankha Rd (ถ.ปรมินทรมรรคา), heading south-east for about 380 m, passing Jindasatee Alley, Tha Chang Alley, to the junction with Pinij Kadee Rd.</description><styleUrl>#g6film</styleUrl><LineString><tessellate>1</tessellate><coordinates>99.17586,10.49509,0 99.17679,10.49459,0 99.17701,10.49447,0 99.17799,10.494,0 99.17851,10.49374,0 99.17894,10.49353,0</coordinates></LineString></Placemark>
+<Placemark><name>G6 step 4: Poramin Mankha Rd</name><description>Continue straight to stay on Poramin Mankha Rd (ถ.ปรมินทรมรรคา), heading south-east for about 120 m to the finish point.</description><styleUrl>#g6film</styleUrl><LineString><tessellate>1</tessellate><coordinates>99.17894,10.49353,0 99.17912,10.49344,0 99.17976,10.49313,0 99.17993,10.49305,0</coordinates></LineString></Placemark>
+<Placemark><name>G6 FINISH</name><description>Junction of Poramin Mankha Rd (ถ.ปรมินทรมรรคา) &amp; Phisit Phayaban Rd</description><Point><coordinates>99.17993,10.49305,0</coordinates></Point></Placemark></Folder>
+</Document></kml>
